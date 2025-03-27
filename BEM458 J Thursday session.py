@@ -1,10 +1,10 @@
 #######################################################################################################################################################
-# 
-# Name:
-# SID:
-# Exam Date:
-# Module:
-# Github link for this assignment:  
+# """
+# Name: Thinzar Myint Thu
+# SID: 740083999
+# Exam Date: 27 March 2025
+# Module: Programming for Business Analytics
+# Github link for this assignment:  https://github.com/UniversityExeterBusinessSchool/practiceassessment-thursday-ThinzarMT
 #
 # ######################################################################################################################################################
 # Instruction 1. Read the questions and instructions carefully and complete scripts.
@@ -46,11 +46,14 @@ key_comments = {
     8: 'overall',
     9: 'minor'
 }
-
 # Write your search code here and provide comments. 
+allocated_keys = [7,9]
 
 # Initialize an empty list to store (start, end) positions
-my_list = []
+my_list = [(key_comments.find(7), key_comments.find(7)+ len(7)),
+            (key_comments.find(9), key_comments.find(7)+len(9))]
+
+print(my_list)
 
 ##########################################################################################################################################################
 
@@ -59,19 +62,30 @@ my_list = []
 # Operating Profit Margin, Revenue per Customer, Customer Churn Rate, and Average Order Value. Use Python functions 
 # that will take the values and return the metric needed. Use the first two and last two digits of your ID number as the input values.
 
-# Insert first two digits of ID number here:
-# Insert last two digits of ID number here:
+# Insert first two digits of ID number here: 74
+# Insert last two digits of ID number here:  99
 
 # Write your code for Operating Profit Margin
-
+def net_profit_margin(net_profit,revenue):
+    return net_profit/revenue * 100
 # Write your code for Revenue per Customer
+def revenue_per_customer(total_revenue,number_of_customers):
+    return total_revenue/number_of_customers
 
 # Write your code for Customer Churn Rate
+def customer_churn_rate(total_lost_customer, total_new_customer):
+    return total_lost_customer/total_new_customer * 100
+
 
 # Write your code for Average Order Value
+def average_order_value(total_revenue, number_of_orders):
+    return total_revenue/number_of_orders
 
 # Call your designed functions here
-
+print("Net Profit Margin: net_profit_margin(74,99)")
+print("Revenue Per Customer: revenue_per_customer(74,99)")
+print("Customer Churn Rate:(74,99)")
+print("Average Order Value:(74,99)")
 ##########################################################################################################################################################
 
 # Question 3 - Regression
@@ -97,6 +111,15 @@ Price (£)    Demand (Units)
 """
 
 # Write your code here
+model = LinearRegression()
+model.fit(price, demand)
+revenue = price * predicted_demand
+max_revenue = revenue.max()
+
+price_range = np.linspace(20, 70, 100).reshape(-1, 1)
+predicted_demand = model.predict(np.array([[52]]))
+print(f"Predicted demand at price £52: {predicted_demand[0]}")
+
 
 ##########################################################################################################################################################
 
@@ -106,17 +129,23 @@ import random
 import matplotlib.pyplot as plt
 
 # Generate 100 random numbers between 1 and student id number
-max-value = integer(input("Enter your Student ID: "))
-random_numbers = [random.randint(1, max_value) for i in range(0,100)]
+max_value = int(input("Enter your Student ID:"))
+random_numbers = [random.randint(1, max_value) for i in range(100)]
 
 # Plotting the numbers in a line chart
-plt.plot(random_numbers, marker='O', markercolor='green', markeredgcolor='red', linestyle='--', lable='Random Numbers', color='blue');
-plt.title(Line Chart of 100 Random Numbers)
-plt.xlabel="Index"
-plt.ylabel="Random Number"
-plt.legend('---')
+plt.plot(random_numbers, marker='o', markercolor='green', markeredgcolor='red', linestyle='--', label='Random Numbers', color='blue')
+plt.title("Line Chart of 100 Random Numbers")
+plt.xlabel('Index')
+ply.ylabel('Random Number')
+plt.legend()
 plt.grid(True)
 plt.show()
+
+
+
+
+
+
 
 
 
